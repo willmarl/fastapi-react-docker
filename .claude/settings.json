@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /home/cat/repos/ezcomfypick -type f | grep -v node_modules | grep -v .venv | grep -v __pycache__ | grep -v .git | grep -v dist | grep -v pnpm-lock | sort)",
+      "Read(//home/cat/repos/ezcomfypick/**)"
+    ]
+  }
+}
