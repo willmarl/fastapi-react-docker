@@ -7,6 +7,9 @@ export default function Header() {
         <Link to="/" className="font-medium hover:underline">
           Home
         </Link>
+        <Link to="/todos" className="font-medium hover:underline">
+          Todos
+        </Link>
         <Link to="/test" className="font-medium hover:underline">
           Test
         </Link>
