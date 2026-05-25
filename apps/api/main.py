@@ -3,8 +3,10 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 import os
 from pathlib import Path
+from modules.api import router
 
 app = FastAPI()
+app.include_router(router)
 
 FOO_DIR = Path(os.environ.get("FOO_DIR", "foos"))
 
