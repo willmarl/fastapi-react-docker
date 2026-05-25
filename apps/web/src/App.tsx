@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "./App.css";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -64,50 +65,37 @@ function App() {
   return (
     <div className="p-8 max-w-2xl mx-auto">
       <div className="space-y-4">
-        <button
-          type="button"
-          className="block w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          onClick={() => setCount((count) => count + 1)}
-        >
+        <Button className="w-full" onClick={() => setCount((count) => count + 1)}>
           Count is {count}
-        </button>
+        </Button>
 
-        <button
-          type="button"
-          className="block w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50"
-          onClick={fetchFoos}
-          disabled={loading}
-        >
+        <Button className="w-full" onClick={fetchFoos} disabled={loading}>
           {loading ? "Loading..." : "Fetch Foos"}
-        </button>
+        </Button>
 
-        <button
-          type="button"
-          className="block w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          onClick={createFile}
-        >
+        <Button className="w-full" onClick={createFile}>
           Create foo.txt
-        </button>
+        </Button>
 
-        <button
-          type="button"
-          className="block w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          onClick={deleteFile}
-        >
+        <Button className="w-full" variant="destructive" onClick={deleteFile}>
           Delete foo.txt
-        </button>
+        </Button>
 
-        {error && <p className="text-red-600">{error}</p>}
+        {error && <p className="text-destructive">{error}</p>}
         {message && <p className="text-green-600">{message}</p>}
         {foos.length > 0 && (
-          <div className="p-4 bg-gray-100 rounded">
-            <h3 className="font-bold">Foos ({foos.length})</h3>
-            <ul className="list-disc list-inside mt-2">
-              {foos.map((foo) => (
-                <li key={foo}>{foo}</li>
-              ))}
-            </ul>
-          </div>
+          <Card>
+            <CardHeader>
+              <CardTitle>Foos ({foos.length})</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="list-disc list-inside">
+                {foos.map((foo) => (
+                  <li key={foo}>{foo}</li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
         )}
       </div>
     </div>
