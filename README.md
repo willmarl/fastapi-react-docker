@@ -30,7 +30,9 @@ uv venv
 source .venv/bin/activate
 uv pip install -r requirements.txt
 # make foos folder in apps/api
-mkdir apps/api/foos
+mkdir foos
+cd ../web
+pnpm install
 ```
 
 ### Running app
