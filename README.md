@@ -29,6 +29,8 @@ cd apps/api
 uv venv
 source .venv/bin/activate
 uv pip install -r requirements.txt
+# make foos folder in apps/api
+mkdir apps/api/foos
 ```
 
 ### Running app
